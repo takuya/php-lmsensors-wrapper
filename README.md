@@ -1,6 +1,39 @@
 # php-lmsensors-wrapper
 lm-sensors cpu temperature to json 
 
+command result 
+```text
+acpitz-acpi-0
+Adapter: ACPI interface
+temp1:        +33.0°C  (crit = +100.0°C)
+
+coretemp-isa-0000
+Adapter: ISA adapter
+Package id 0:  +34.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 0:        +33.0°C  (high = +105.0°C, crit = +105.0°C)
+Core 2:        +34.0°C  (high = +105.0°C, crit = +105.0°C)
+```
+this package will convert result to json 
+```json
+[
+    {
+        "Name": "acpitz-acpi-0",
+        "Adapter": " ACPI interface",
+        "Temperature": {
+            "temp1": "+33.0°C  (crit = +100.0°C)"
+        }
+    },
+    {
+        "Name": "coretemp-isa-0000",
+        "Adapter": " ISA adapter",
+        "Temperature": {
+            "Package id 0": "+34.0°C  (high = +105.0°C, crit = +105.0°C)",
+            "Core 0": "+33.0°C  (high = +105.0°C, crit = +105.0°C)",
+            "Core 2": "+34.0°C  (high = +105.0°C, crit = +105.0°C)"
+        }
+    }
+]
+```
 
 ## Install
 via packagist
